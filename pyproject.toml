@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "versol"
+version = "0.1.0"
+description = ""
+authors = ["vector-of-bool <vectorofbool@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "versol", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typing-extensions = "^4.11.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.3.0"
+pyright = "^1.1.358"
+pytest = "^8.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
