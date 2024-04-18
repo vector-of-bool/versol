@@ -1,6 +1,6 @@
 # Changelog
 
-# (Unrelease)
+# 0.1.2 - 2027/04/17
 
 ## Added
 
