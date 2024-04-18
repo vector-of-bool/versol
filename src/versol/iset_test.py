@@ -26,6 +26,22 @@ def test_overlapping_union():
     assert iv.contains(4)
     assert iv == mod.HalfOpenIntervalSet[int]([(1, 7)])
 
+    iv = mod.HalfOpenIntervalSet[int]([(1, 10), (1, 15)])
+    assert list(iv.intervals) == [(1, 15)]
+
+    iv = mod.HalfOpenIntervalSet[int]([(1, 10), (5, 10)])
+    assert list(iv.intervals) == [(1, 10)]
+
+    iv = mod.HalfOpenIntervalSet[int]([(5, 10), (1, 10)])
+    assert list(iv.intervals) == [(1, 10)]
+
+
+def test_self_union():
+    iv = mod.HalfOpenIntervalSet[int]([(1, 10)])
+    un = iv | iv
+    assert un == iv
+    assert list(un.intervals) == [(1, 10)]
+
 
 def test_disjoint_union():
     iv = mod.HalfOpenIntervalSet[int]([(1, 4), (6, 9)])
@@ -69,6 +85,13 @@ def test_difference():
     assert diff == mod.HalfOpenIntervalSet[int]([(1, 5)])
     diff2 = iv2 - iv
     assert diff != diff2
+
+
+def test_difference_same():
+    iv = mod.HalfOpenIntervalSet[int]([(1, 10)])
+    nil = iv - iv
+    assert nil.empty
+    assert list(nil.intervals) == []
 
 
 def _many_pairs(base: int, n: int, width: int, stride: int) -> Iterator[tuple[int, int]]:

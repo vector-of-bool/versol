@@ -216,8 +216,8 @@ class HalfOpenIntervalSet(Generic[PointT]):
         for calculating `.difference()`.
         """
         low, high = iv
-        left = self.__n_points_before_or_at(low)
-        right = self.__n_points_before(high)
+        left = self.__n_points_before(low)
+        right = self.__n_points_before_or_at(high)
         if left % 2:  # Starts within the set?
             if right % 2:  # Ends within the set?
                 self.__points[left:right] = (low, high)

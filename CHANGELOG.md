@@ -1,5 +1,11 @@
 # Changelog
 
+# (Unrelease)
+
+## Fixes
+
+- Fixed `HalfOpenIntervalSet`'s difference operation when interval points aligned
+
 # 0.1.1 - 2024/04/16
 
 ## Added
