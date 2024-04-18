@@ -232,6 +232,13 @@ class HalfOpenIntervalSet(Generic[PointT]):
         pairs = (f"[{lo!r}, {hi!r})" for lo, hi in self.intervals)
         return f'<HalfOpenIntervalSet ⟨{", ".join(pairs)}⟩>'
 
+    def __str__(self) -> str:
+        if self.empty:
+            return "HalfOpenIntervalSet()"
+        else:
+            ivs = " ∪ ".join(f"⟨≥{low},<{high}⟩" for low, high in self.intervals)
+            return f"{{{ivs}}}"
+
     def __eq__(self, other: object) -> bool:
         """
         Compare two sets for equality. The two sets are equivalent if it is

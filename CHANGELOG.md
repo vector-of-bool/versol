@@ -2,6 +2,10 @@
 
 # (Unrelease)
 
+## Added
+
+- Added a `__str__` to `HalfOpenIntervalSet` that uses `str` on sub-objects
+
 ## Fixes
 
 - Fixed `HalfOpenIntervalSet`'s difference operation when interval points aligned
